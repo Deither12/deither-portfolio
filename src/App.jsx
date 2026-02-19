@@ -7,6 +7,7 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Certifications from './components/Certifications'
 import Contact from './components/Contact'
+import ChatBot from './components/ChatBot'
 
 export default function App() {
   const [dark, setDark] = useState(() => {
@@ -19,6 +20,8 @@ export default function App() {
     document.documentElement.classList.toggle('dark', dark)
     localStorage.setItem('theme', dark ? 'dark' : 'light')
   }, [dark])
+
+  console.log('App is rendering, ChatBot will be included')
 
   return (
     <div style={{ background: 'var(--bg)', color: 'var(--text)', minHeight: '100vh', transition: 'background 0.3s, color 0.3s' }}>
@@ -40,6 +43,7 @@ export default function App() {
         <p style={{ fontSize: 13, color: 'var(--muted)' }}>© 2025 Deither Manaog Amurao. All rights reserved.</p>
         <p style={{ fontSize: 13, color: 'var(--muted)' }}>Calamba City, Laguna</p>
       </footer>
+      <ChatBot />
     </div>
   )
 }
