@@ -32,7 +32,8 @@ Keep your answers concise, friendly, and helpful. If you don't know something sp
     );
 
     const data = await response.json();
-    const text = data.candidates?.[0]?.content?.parts?.[0]?.text ?? "Sorry, I couldn't generate a response.";
+    console.log('Gemini raw response:', JSON.stringify(data));
+const text = data.candidates?.[0]?.content?.parts?.[0]?.text ?? "Sorry, I couldn't generate a response.";
 
     return res.status(200).json({ reply: text });
   } catch (err) {
