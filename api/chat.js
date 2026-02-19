@@ -33,11 +33,14 @@ Keep your answers concise, friendly, and helpful. If you don't know something sp
 
     const data = await response.json();
     console.log('Gemini raw response:', JSON.stringify(data));
-const text = data.candidates?.[0]?.content?.parts?.[0]?.text ?? "Sorry, I couldn't generate a response.";
 
-    return res.status(200).json({ reply: text });
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+
+    // Temporarily show raw Gemini response for debugging
+    return res.status(200).json({ reply: text || JSON.stringify(data) });
+
   } catch (err) {
     console.error('Server error:', err);
-    return res.status(500).json({ error: 'Internal server error' });
+    return res.status(500).json({ error: err.message });
   }
 }
